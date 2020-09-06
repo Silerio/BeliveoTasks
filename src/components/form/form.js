@@ -3,7 +3,7 @@ import './form.css';
 
 function Form(props){
     return(
-        <div>
+        <div  className="col-12 my-2">
             <ul className="nav nav-tabs">
 
                 <li className="nav-item">
@@ -23,10 +23,10 @@ function Form(props){
                             <input type="text" className="form-control" placeholder="Task Name..."/>
                         </div>
                         <div className="input-group">
-                            <textarea className="form-control" placeholder="(Optional) Extra indications for the task..."></textarea>
+                            <textarea className="form-control" placeholder="(Optional) Indications for the task..."></textarea>
                         </div>
-                        <div class="buttonContainer mt-4">
-                            <button type="button" className="btn btn-primary btn-lg">Add Task</button>
+                        <div className="buttonContainer mt-4">
+                            <button type="button" className="btn btn-primary btn-small">Add Task</button>
                         </div>
                     </div>
                 </div>
@@ -36,8 +36,8 @@ function Form(props){
                         <div className="input-group mb-3">
                             <input type="text" className="form-control" placeholder="List Name..."/>
                         </div>
-                        <div class="buttonContainer  mt-2">
-                            <button type="button" className="btn btn-primary btn-lg">Add List</button>
+                        <div className="buttonContainer mt-2">
+                            <button type="button" className="btn btn-primary btn-small">Add List</button>
                         </div>
                     </div>
                 </div>

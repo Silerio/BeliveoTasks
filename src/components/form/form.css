@@ -1,0 +1,36 @@
+/*Clases Editadas de Bootstrap*/
+.nav-tabs {
+    border-bottom: 0px solid #dee2e6;
+}
+
+.form-control:focus {
+    background-color: #fff;
+    box-shadow: none;
+    border: 2px solid #007bff6b;
+}
+
+.form-control {
+    font-size: 1rem;
+    border: 1px solid #e6e6e6;
+}
+
+input.form-control{
+    font-size: 2rem;
+    border: 1px solid #e6e6e6;
+}
+
+
+
+/*Clases Creadas*/
+
+.formContainer{
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    box-shadow: 0px 50px 40px #d0d0d0;
+    border-radius: 0px 20px 20px 20px;
+}
+
+.formContainer > .buttonContainer{
+    width: 100%;
+    text-align: right;
+}

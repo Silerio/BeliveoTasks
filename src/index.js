@@ -18,6 +18,21 @@ const Index = () => {
         localStorage.setItem('tasks',JSON.stringify(tasks));
     }, [tasks]);
 
+
+    const [lists, setLists] = useState(() => {
+        if(localStorage.getItem('lists') == null){
+            return [{ listId: 0, listName: 'Todos'}];
+        }else{
+            return JSON.parse(localStorage.getItem('lists'));
+        }
+    });
+
+    useEffect(() => {
+        localStorage.setItem('lists',JSON.stringify(lists));
+    }, [lists]);
+
+    
+
     const addTask = (task) => {
 
         var taskId;
@@ -38,6 +53,23 @@ const Index = () => {
         ]);
     }
 
+    const addList = (list) => {
+
+        var listId;
+        if(lists.length > 0){
+            listId = lists[lists.length-1].listId + 1;
+        }else{
+            listId = 1;
+        }
+
+        setLists([...lists,
+            {
+                listId: listId,
+                listName: list.listName
+            }
+        ]);
+    }
+
     const doneTask = (taskId) => {
         setTasks(
             tasks.map(task => (task.taskId === taskId ? {...task, taskStatus: 1} : task))
@@ -46,7 +78,7 @@ const Index = () => {
 
     return(
         <div className='row'>
-            <Form addTask={addTask}/>
+            <Form addTask={addTask} addList={addList} lists={lists}/>
             <List status={0} tasks={tasks} doneTask={doneTask}/>
             <List status={1} tasks={tasks} doneTask={doneTask}/>
         </div>

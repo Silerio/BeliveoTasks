@@ -6,7 +6,7 @@ function List(props){
     const generateTaskNames = (props) => {
         var taskNames = props.tasks.filter(task => task.taskStatus === props.status).map((task, i) => {
             return(
-                <a className={"list-group-item list-group-item-action "+(i === 0 ? 'active' : '')} data-toggle="list" href={'#task'+i} key={task.taskId}>
+                <a className={"list-group-item list-group-item-action "+(i === 0 ? 'active' : '')} data-toggle="list" href={'#task'+i+props.status} key={i}>
                     {task.taskName}
                 </a>
             )
@@ -18,7 +18,7 @@ function List(props){
     const generateTaskDescriptions = (props) => {   
         var taskDescripctions =  props.tasks.filter(task => task.taskStatus === props.status).map((task, i) => {
             return(
-                <div className={"tab-pane fade "+(i === 0 ? 'show active' : '')} id={'task'+i} key={task.taskId}>
+                <div className={"tab-pane fade "+(i === 0 ? 'show active' : '')} id={'task'+i+props.status} key={i}>
                     {task.taskDescription}
                     <div className="buttonContainer mt-4">
                         {(task.taskStatus === 0 ? 

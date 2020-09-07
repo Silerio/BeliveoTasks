@@ -54,13 +54,24 @@ const Index = () => {
             taskId = 1;
         }
 
+        var date = new Date();
+        var creationDate =
+        ("00" + (date.getMonth() + 1)).slice(-2) + "-" +
+        ("00" + date.getDate()).slice(-2) + "-" +
+        date.getFullYear() + " " +
+        ("00" + date.getHours()).slice(-2) + ":" +
+        ("00" + date.getMinutes()).slice(-2) + ":" +
+        ("00" + date.getSeconds()).slice(-2);
+
         setTasks([...tasks,
             {
                 taskId: taskId,
                 taskName: task.taskName,
                 taskDescription: task.taskDescription,
                 taskList: currentList.listId,
-                taskStatus: 0
+                taskStatus: 0,
+                taskCreationDate: creationDate,
+                taskDoneDate: null
             }
         ]);
     }
@@ -80,11 +91,23 @@ const Index = () => {
                 listName: list.listName
             }
         ]);
+
+        setCurrentList({ listId: listId, listName: list.listName});
     }
 
     const doneTask = (taskId) => {
+        var date = new Date();
+        var taskDoneDate =
+        ("00" + (date.getMonth() + 1)).slice(-2) + "-" +
+        ("00" + date.getDate()).slice(-2) + "-" +
+        date.getFullYear() + " " +
+        ("00" + date.getHours()).slice(-2) + ":" +
+        ("00" + date.getMinutes()).slice(-2) + ":" +
+        ("00" + date.getSeconds()).slice(-2);
+
+
         setTasks(
-            tasks.map(task => (task.taskId === taskId ? {...task, taskStatus: 1} : task))
+            tasks.map(task => (task.taskId === taskId ? {...task, taskStatus: 1, taskDoneDate: taskDoneDate} : task))
         );
     }
 

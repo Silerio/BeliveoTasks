@@ -25,7 +25,7 @@
     padding: 10px;
     border: 1px solid #dfdfdf;
     font-size: 20px;
-    color: #a7a7a7;
+    color: #545454;
 }
 
 .listEmptyText{
@@ -35,4 +35,32 @@
     background: #f5f5f5;
     color: #bfbfbf;
     border: 1px solid #dfdfdf;
+}
+
+.list-group-item.active.taskToDo{
+    background-color: #3d5d8c;
+    border-color: #969696;
+}
+
+.descriptionContainer.taskToDo{
+    background-color: #3d5d8c;
+    color: #fff;
+}
+
+.list-group-item.active.taskDone{
+    background-color: #28a745;
+    border-color: #969696;
+}
+
+.descriptionContainer.taskDone{
+    background-color: #28a745;
+    color: #fff;
+}
+
+.taskDate{
+    display: block;
+    border-top: 1px solid #ffffff73;
+    margin-top: 20px;
+    padding:10px 10px 0px;
+    text-align:right;
 }

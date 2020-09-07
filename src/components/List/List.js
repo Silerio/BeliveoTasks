@@ -6,8 +6,8 @@ function List(props){
     const generateTaskNames = (props) => {
         var taskNames = props.tasks.filter(task => (task.taskStatus === props.status && (task.taskList === props.currentList.listId || props.currentList.listId === 0))).map((task, i) => {
             return(
-                <a className={"list-group-item list-group-item-action "+(i === 0 ? 'active' : '')} data-toggle="list" href={'#task'+i+props.status} key={i}>
-                    {task.taskName}
+                <a className={"list-group-item list-group-item-action "+(i === 0 ? 'active' : '')+(props.status === 0 ? ' taskToDo' : ' taskDone')} data-toggle="list" href={'#task'+i+props.status} key={i}>
+                    {(task.taskName !== '' ? task.taskName : '*No Name Task')}
                 </a>
             )
         });
@@ -19,7 +19,13 @@ function List(props){
         var taskDescripctions =  props.tasks.filter(task => (task.taskStatus === props.status && (task.taskList === props.currentList.listId || props.currentList.listId === 0))).map((task, i) => {
             return(
                 <div className={"tab-pane fade "+(i === 0 ? 'show active' : '')} id={'task'+i+props.status} key={i}>
-                    {task.taskDescription}
+                    <h4>{task.taskName}</h4>
+                    {(task.taskDescription !== '' ? task.taskDescription : '*No Description')}
+                    <span className="taskDate">
+                        Creation: {task.taskCreationDate}
+                        <br/>
+                        {(task.taskStatus === 1) ? 'Done Task: '+task.taskDoneDate: ''}
+                    </span>
                     <div className="buttonContainer mt-4">
                         {(task.taskStatus === 0 ? 
                             <button type="button" className="btn btn-success btn-small" onClick={() => {props.doneTask(task.taskId)}}>
@@ -44,7 +50,7 @@ function List(props){
                     </div>
                 </div>
                 <div className="col-7">
-                    <div className="tab-content descriptionContainer">
+                    <div className={"tab-content descriptionContainer "+ (props.status === 0 ? ' taskToDo' : ' taskDone')}>
                         {generateTaskDescriptions(props)}
                     </div>
                 </div>

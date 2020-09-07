@@ -50,21 +50,20 @@ function Form(props){
                         <div className="input-group mb-3">
                             <input type="text" className="form-control" placeholder="Task Name..." id="taskName"/>
                             <div className="input-group-append">
-                                <button className="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     List in: <b>{props.currentList.listName}</b>
                                 </button>
                                 <div className="dropdown-menu">
                                     {generateLists(props)}
                                     <div role="separator" className="dropdown-divider"></div>
                                     <a className="dropdown-item" href="#Nuevo" data-toggle="modal" data-target="#modal">Add List</a>
+                                    <div role="separator" className="dropdown-divider"></div>
+                                    <a className="dropdown-item active" href="#Nuevo" onClick={addNewTask}>Add Task</a>
                                 </div>
                             </div>
                         </div>
                         <div className="input-group">
                             <textarea className="form-control" placeholder="(Optional) More description for the task..." id="taskDescription"></textarea>
-                        </div>
-                        <div className="buttonContainer mt-4">
-                            <button type="button" className="btn btn-primary btn-small" onClick={addNewTask}>Add Task</button>
                         </div>
                     </div>
                 </div>

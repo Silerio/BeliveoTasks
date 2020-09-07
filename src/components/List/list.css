@@ -1,0 +1,38 @@
+.listContainer{
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px #b9b9b9;
+}
+
+.listTitle{
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+}
+
+.descriptionContainer{
+    background: #fff;
+    box-shadow: -5px 8px 20px #d0d0d0;
+    border: 1px solid #c3c3c35e;
+    border-radius: 10px;
+    padding: 15px 30px;
+    color: #696969ad;
+}
+
+.listTasksHeader{
+    background: whitesmoke;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #dfdfdf;
+    font-size: 20px;
+    color: #a7a7a7;
+}
+
+.listEmptyText{
+    text-align: center;
+    font-size: 30px;
+    padding: 20px 10px;
+    background: #f5f5f5;
+    color: #bfbfbf;
+    border: 1px solid #dfdfdf;
+}

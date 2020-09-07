@@ -15,7 +15,7 @@
 }
 
 input.form-control{
-    font-size: 25px;
+    font-size: 20px;
     border: 1px solid #e6e6e6;
 }
 
@@ -30,7 +30,7 @@ input.form-control{
     border-radius: 0px 20px 20px 20px;
 }
 
-.formContainer > .buttonContainer{
+.buttonContainer{
     width: 100%;
     text-align: right;
 }

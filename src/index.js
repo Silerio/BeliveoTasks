@@ -19,9 +19,22 @@ const Index = () => {
     }, [tasks]);
 
 
+    const [currentList, setCurrentList] = useState(() => {
+        if(localStorage.getItem('currentList') == null){
+            return { listId: 0, listName: 'All'};
+        }else{
+            return JSON.parse(localStorage.getItem('currentList'));
+        }
+    });
+
+    useEffect(() => {
+        localStorage.setItem('currentList',JSON.stringify(currentList));
+    }, [currentList]);
+
+
     const [lists, setLists] = useState(() => {
         if(localStorage.getItem('lists') == null){
-            return [{ listId: 0, listName: 'Todos'}];
+            return [currentList];
         }else{
             return JSON.parse(localStorage.getItem('lists'));
         }
@@ -31,7 +44,6 @@ const Index = () => {
         localStorage.setItem('lists',JSON.stringify(lists));
     }, [lists]);
 
-    
 
     const addTask = (task) => {
 
@@ -47,7 +59,7 @@ const Index = () => {
                 taskId: taskId,
                 taskName: task.taskName,
                 taskDescription: task.taskDescription,
-                taskList: null,
+                taskList: currentList.listId,
                 taskStatus: 0
             }
         ]);
@@ -76,11 +88,18 @@ const Index = () => {
         );
     }
 
+    const changeCurrentList = (listId) => {
+        var list = lists.filter(list => list.listId === listId).map((list) => {
+            return list;
+        });
+        setCurrentList(list[0]);
+    }
+
     return(
         <div className='row'>
-            <Form addTask={addTask} addList={addList} lists={lists}/>
-            <List status={0} tasks={tasks} doneTask={doneTask}/>
-            <List status={1} tasks={tasks} doneTask={doneTask}/>
+            <Form addTask={addTask} addList={addList} lists={lists.sort((a, b) => (a.listName > b.listName) ? 1 : -1)} currentList={currentList} changeCurrentList={changeCurrentList}/>
+            <List status={0} tasks={tasks} doneTask={doneTask} currentList={currentList}/>
+            <List status={1} tasks={tasks} doneTask={doneTask} currentList={currentList}/>
         </div>
     );
 };

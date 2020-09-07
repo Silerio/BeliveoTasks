@@ -30,7 +30,9 @@ function Form(props){
     const generateLists = (props) => {
         return props.lists.map((list, i) => {
             return(
-                <a className="dropdown-item" href={'#'+list.listName} key={i}>{list.listName}</a>
+                <a className="dropdown-item" href={'#'+list.listName} key={i} onClick={() => {props.changeCurrentList(list.listId)}}>
+                    {list.listName}
+                </a>
             )
         });
     }
@@ -48,7 +50,9 @@ function Form(props){
                         <div className="input-group mb-3">
                             <input type="text" className="form-control" placeholder="Task Name..." id="taskName"/>
                             <div className="input-group-append">
-                                <button className="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select List</button>
+                                <button className="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    List in: <b>{props.currentList.listName}</b>
+                                </button>
                                 <div className="dropdown-menu">
                                     {generateLists(props)}
                                     <div role="separator" className="dropdown-divider"></div>

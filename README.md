@@ -2,7 +2,7 @@
 Se realizó una aplicación para administrar tareas con React utilizando la versión 16.13.1.
 
 
-## Instrucciones Beliveo - Tasks
+## Instrucciones: Beliveo - Tasks
 -Formulario: El formulario tiene 2 campos de texto para el nombre de la tarea y una descripción, al lado se encuentra un botón multifuncional donde
 se pueden desplegar las sublistas en orden alfabético para poder filtrar las tareas y también se encuentran 2 opciones al final para agregar una sublista nueva o una tarea nueva.
 

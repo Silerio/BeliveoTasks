@@ -2,7 +2,17 @@ import React from 'react';
 import './form.css';
 
 function Form(props){
+    /*
+        Esta función manda a llamar a la función del componente Index para agregar
+        una nueva tarea.
 
+        Se declaran las variables con los valores de los campos de texto.
+
+        Se llama a la función para agrear una nueva tarea pasando como parámetros
+        los datos anteriores.
+
+        Se limpian los campos de texto.
+    */
     const addNewTask = () => {
         var taskName = document.getElementById('taskName').value;
         var taskDescription = document.getElementById('taskDescription').value;
@@ -16,6 +26,17 @@ function Form(props){
         document.getElementById('taskDescription').value = '';
     }
 
+
+
+
+
+    /*
+        Esta función agrega una nueva sublista y el proceso es
+        igual que al anterior.
+
+        Al final se manda hacer click al botón del modal para cerrarlo
+        y limpiar su input.
+    */
     const addNewList = () => {
         var listName = document.getElementById('listName').value;
 
@@ -27,6 +48,18 @@ function Form(props){
         document.getElementById('listName').value = '';
     }
 
+
+
+
+
+    /*
+        Esta función genera la lista de sublistas en el
+        botón multifuncional.
+
+        Se recorre el arreglo de sublistas y se generan los
+        elementos con un evento onClick que al ejecutarse
+        llamará a la función para cambiar el "currentList".
+    */
     const generateLists = (props) => {
         return props.lists.map((list, i) => {
             return(
@@ -37,6 +70,12 @@ function Form(props){
         });
     }
 
+
+
+
+    /*
+        Retorno del componente Form, se retorna el renderizado del formulario.
+    */
     return(
         <div  className="col-12 my-2">
             <ul className="nav nav-tabs">

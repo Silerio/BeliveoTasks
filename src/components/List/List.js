@@ -2,7 +2,18 @@ import React from 'react';
 import './list.css';
 
 function List(props){
+    /*
+        Esta función genera el enlistado de tareas que aparecen en el lado izquierdo
+        de la Lista.
 
+        Se recorre el arreglo de tareas y se condiciona cuales tareas se van
+        a enlistar, esto de acuerdo a los parametros recibidos en las propiedades.
+
+        Los elementos se generan con algunos datos dínamicos para decidir si se 
+        muestran, su color, datos default, etc..
+
+        Se comprueba si existen o no tareas enlistadas para decidir que mostrar.
+    */
     const generateTaskNames = (props) => {
         var taskNames = props.tasks.filter(task => (task.taskStatus === props.status && (task.taskList === props.currentList.listId || props.currentList.listId === 0))).map((task, i) => {
             return(
@@ -15,6 +26,20 @@ function List(props){
         return (taskNames.length > 0 ? taskNames : <span className="listEmptyText">Without Tasks</span>);
     }
 
+
+
+
+
+    /*
+        Esta función genera las descripciones que aparecen en el lado derecho
+        de la Lista.
+
+        Se hace el mismo proceso que la funcion anterior.
+
+        Se generan elementos con información dinámica.
+
+        Se comprueba si existen o no tareas enlistadas para decidir que mostrar.
+    */
     const generateTaskDescriptions = (props) => {   
         var taskDescripctions =  props.tasks.filter(task => (task.taskStatus === props.status && (task.taskList === props.currentList.listId || props.currentList.listId === 0))).map((task, i) => {
             return(
@@ -40,6 +65,12 @@ function List(props){
         return (taskDescripctions.length > 0 ? taskDescripctions : <span>This list is empty!</span>);
     }
 
+
+
+
+    /*
+        Retorno del componente List, se retorna el renderizado de la Lista.
+    */
     return(
         <div className="col-12 mt-2">
             <div className="row mx-0 mt-2 px-3 py-4 listContainer">
